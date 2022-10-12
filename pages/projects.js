@@ -1,11 +1,11 @@
 import Layout from '../components/Layout'
 
-const Home = () => {
+const Projects = () => {
     return (
         <Layout>
-            Home Page
+            Project Page
         </Layout>
     )
 }
 
-export default Home
+export default Projects
