@@ -2,24 +2,27 @@ import Link from 'next/link'
 
 const NavBar = () => {
     return (
-        <div className = "w-full bg-slate-200 h-fit p-4">
+        <div className = "bg-stone-800 p-6 flex items-center justify-between font-sans">
 
-            <div className = "flex items-center justify-center h-full mb-2">
-                <p className = "text-sky-800 font-bold text-4xl">Andrew Tam</p>
-            </div>  
+            <Link href = "/">
+                <a className = "text-white font-bold text-4xl">Andrew Tam</a>
+            </Link>
 
-            <div className = "flex items-center justify-center h-full">
-                
-                <div className = "mx-4">
-                    <Link href = "/about">
-                        <a className = "text-slate-800 font-bold text-xl">About Me</a>
-                    </Link>
-                </div>  
-                <div className = "mx-4">
-                    <Link href = "/projects">
-                        <a className = "text-slate-800 font-bold text-xl">Projects</a>
-                    </Link>
-                </div>  
+            <div className="">
+                <div className = "ml-4 text-white">
+                    {"Email: "}
+                    <a href="mailto:contact@andrewtam.org" className = "text-sky-200 font-bold text-lg">
+                        contact@andrewtam.org
+                    </a>
+                </div>
+
+                <div className = "ml-4 text-white">
+                    {"GitHub: "}
+                    <a target="_blank" href="https://github.com/tamandrew" className = "text-sky-200 font-bold text-lg">
+                        tamandrew
+                    </a>
+                </div>
+
             </div>
         </div>
     )

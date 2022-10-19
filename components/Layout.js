@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Fragment } from "react"
 import NavBar from "./NavBar"
 
 const Layout = ({ children }) => {
@@ -10,8 +11,9 @@ const Layout = ({ children }) => {
 
             <NavBar />
 
-            <main>{children}</main>
-
+            <main>
+                {children}
+            </main>
         </>
     )
 }
