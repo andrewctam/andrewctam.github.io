@@ -6,7 +6,9 @@ const ProjectBox = (props) => {
 
             <div className = "w-full h-full grid items-center">
                 <div>
-                    <h2><a target = "_blank" href = {props.projectLink} className = "text-3xl text-black"><h1>{props.title}</h1></a></h2>
+                    <h2>
+                        <a rel="noreferrer" target = "_blank" href = {props.projectLink} className = "text-3xl text-black">{props.title}</a>
+                    </h2>
                     <p className = "text-rose-700 mt-1 mb-3">{props.technologies}</p>
                     <p>{props.description}</p>
                 </div>
@@ -18,7 +20,9 @@ const ProjectBox = (props) => {
 
 
             <div className = "w-full h-full">
-                <img href = {props.projectLink} src = {props.imgSrc} className = "my-4 rounded-xl h-fit"/>
+                <a rel="noreferrer" target = "_blank" href = {props.projectLink}>
+                    <img src = {props.imgSrc} alt = {props.title} className = "my-4 rounded-xl h-fit"/>
+                </a>
             </div>
             
 

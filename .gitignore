@@ -10,7 +10,6 @@ node_modules
 
 # production
 /build
-frontend/build
 
 # misc
 .DS_Store
@@ -18,7 +17,7 @@ frontend/build
 
 # next.js
 .next
-frontend/out/
+/out
 
 # debug
 npm-debug.log*

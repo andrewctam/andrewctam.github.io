@@ -18,7 +18,7 @@ const NavBar = () => {
 
                 <div className = "ml-4 text-white">
                     {"GitHub: "}
-                    <a target="_blank" href="https://github.com/tamandrew" className = "text-sky-200 font-bold">
+                    <a rel="noreferrer" target="_blank" href="https://github.com/tamandrew" className = "text-sky-200 font-bold">
                         tamandrew
                     </a>
                 </div>

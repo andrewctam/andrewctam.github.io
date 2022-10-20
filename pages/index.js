@@ -5,7 +5,7 @@ import SmallProjectBox from '../components/SmallProjectBox'
 const Home = () => {
     return (
         <Layout>
-            <div className='p-6 text-center w-full bg-gradient-to-r from-sky-100 to-sky-200 text-black'>
+            <div className='p-6 text-center w-full bg-gradient-to-r bg-sky-200 text-black'>
                 <p>Welcome to my portfolio website! I am a Junior studying Computer Science and Applied Math and Statistics at Stony Brook University</p>
                 <p>You can see some of my personal projects below</p>
             </div>
@@ -51,7 +51,7 @@ const Home = () => {
                         link=""
                         projectLink="https://triangulation-calculator.web.app/"
                         imgSrc="/triangulations.png"
-                        bkColor="bg-gradient-to-r from-red-200 to-rose-100"
+                        bkColor="bg-gradient-to-r from-cyan-200 to-teal-100"
                     />
 
                 </div>
