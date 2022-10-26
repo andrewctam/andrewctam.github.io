@@ -21,7 +21,7 @@ const ProjectBox = (props) => {
 
             <div className = "w-full h-full">
                 <a rel="noreferrer" target = "_blank" href = {props.projectLink}>
-                    <img src = {props.imgSrc} alt = {props.title} className = "my-4 rounded-xl h-fit"/>
+                    <img src = {props.imgSrc} alt = {props.title} className = "my-4 rounded-xl"/>
                 </a>
             </div>
             
