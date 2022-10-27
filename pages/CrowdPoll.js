@@ -8,7 +8,7 @@ const CrowdPoll = (props) => {
             github = "https://github.com/tamandrew/CrowdPoll"
             link = "https://crowdpolls.web.app"
             src = {"./crowdpolldemo.mp4"}
-            bkColor = "bg-gradient-to-r from-purple-200 to-fuchsia-100"
+            bkColor = "bg-gradient-to-r from-orange-200 to-amber-100"
             features = {[
                 {
                     "caption": "Create a poll with a title and share it with a link",

@@ -5,19 +5,20 @@ import SmallProjectBox from '../components/SmallProjectBox'
 const Home = () => {
     return (
         <Layout>
-            <div className='p-6 text-center w-full bg-gradient-to-r bg-sky-200 text-black text-lg'>
+            <div className='p-6 text-center w-full bg-gradient-to-r bg-sky-200 text-black text-md md:text-lg'>
                 <p>Welcome to my portfolio website! I am a Junior studying Computer Science and Applied Math and Statistics at Stony Brook University</p>
                 <p>You can see some of my personal projects below</p>
             </div>
 
 
-            <div className="grid grid-cols-1 w-3/4 mx-auto gap-8 my-10">
+            <div className="grid grid-cols-1 sm:w-3/4 mx-auto gap-8 my-10">
                 <ProjectBox
                     title="Matrix Generator"
                     description="Full stack web app for quickly creating matrices and exporting them to text. Many additional features and the ability to save data online or locally."
                     technologies="React, Node.js, Next.js, Bootstrap, Docker, FastAPI, PostgreSQL"
                     link="./MatrixGenerator"
                     projectLink="https://matrixgen.web.app"
+                    github = "https://github.com/tamandrew/matrix-gen"
                     imgSrc="/matrix.png"
                     bkColor="bg-gradient-to-r from-blue-200 to-sky-100"
                 />
@@ -28,8 +29,9 @@ const Home = () => {
                     technologies="MongoDB, Express, React, Node.js, Tailwind CSS"
                     link="./CrowdPoll"
                     projectLink="https://crowdpolls.web.app"
+                    github = "https://github.com/tamandrew/CrowdPoll"
                     imgSrc="/crowdpoll.png"
-                    bkColor="bg-gradient-to-r from-purple-200 to-fuchsia-100"
+                    bkColor="bg-gradient-to-r from-orange-200 to-amber-100"
                 />
 
 
@@ -40,8 +42,9 @@ const Home = () => {
                         technologies="React, Next.js, Tailwind CSS"
                         link="./ColorIdentifier"
                         projectLink="https://coloridentifier.web.app"
+                        github = "https://github.com/tamandrew/color-identifier"
                         imgSrc="/color.png"
-                        bkColor="bg-gradient-to-r from-orange-200 to-amber-100"
+                        bkColor="bg-gradient-to-r from-purple-200 to-fuchsia-100"
                     />
 
                     <SmallProjectBox
@@ -50,6 +53,7 @@ const Home = () => {
                         technologies="React, Tailwind CSS"
                         link="./TriangulationCalculator"
                         projectLink="https://triangulation-calculator.web.app/"
+                        github = "https://github.com/tamandrew/triangulations-calculator"
                         imgSrc="/triangulations.png"
                         bkColor="bg-gradient-to-r from-cyan-200 to-teal-100"
                     />

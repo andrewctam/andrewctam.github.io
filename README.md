@@ -1,7 +1,7 @@
 # Personal Website
 
 ## Description
-This is my personal website! [andrewtam.org](https://andrewtam.org). It is built using React, Next.js and Tailwind CSS.
+This is my personal website, [andrewtam.org](https://andrewtam.org)! It is built using React, Next.js and Tailwind CSS.
 
 ## Installation
 Clone this repository and install npm dependencies. Then, start the local server.

@@ -11,12 +11,11 @@ const SmallProjectBox = (props) => {
                     </h2>
                     <p className = "text-rose-700 mt-1 mb-3">{props.technologies}</p>
                     <p>{props.description}</p>
+                    <a className="text-sky-700" href={props.github} target="_blank">
+                    GitHub Repository
+                    </a>
                 </div>
 
-                <Link href = {props.link}>
-                    <button className = {"text-slate-700 mt-4 p-2 w-fit h-fit border border-black rounded bg-sky-100 hover:-translate-y-1 hover:scale-101 duration-100"}>Learn More →</button>
-                </Link>
-          
                 <a rel="noreferrer" target = "_blank" href = {props.projectLink}>
                     <img src = {props.imgSrc} alt = {props.title} className = "my-4 rounded-lg h-fit"/>
                 </a>

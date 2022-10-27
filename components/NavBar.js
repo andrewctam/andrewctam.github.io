@@ -5,10 +5,10 @@ const NavBar = () => {
         <div className = "bg-stone-800 p-6 flex items-center justify-between font-sans sticky top-0">
 
             <Link href = "/">
-                <a className = "text-white font-bold text-4xl"><h1>Andrew Tam</h1></a>
+                <a className = "text-white font-bold text-2xl md:text-4xl"><h1>Andrew Tam</h1></a>
             </Link>
 
-            <div className="">
+            <div className="text-sm md:text-lg">
                 <div className = "ml-4 text-white">
                     {"Email: "}
                     <a href="mailto:contact@andrewtam.org" className = "text-sky-200 font-bold">
