@@ -22,14 +22,15 @@ const ProjectPage = (props) => {
             clearInterval(interval)
         }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className="text-black text-semibold font-sans text-center">
             <div className={`text-center p-4 font-semibold mb-8 ${props.bkColor}`}>
-                <a target="_blank" href={props.link}><h1 className="text-3xl">{props.title}</h1></a>
+                <a target="_blank" rel="noreferrer" href={props.link}><h1 className="text-3xl">{props.title}</h1></a>
 
-                <a className="text-sky-700" href={props.github} target="_blank">
+                <a className="text-sky-700" href={props.github} target="_blank" rel="noreferrer">
                     GitHub Repository
                 </a>
             </div>
