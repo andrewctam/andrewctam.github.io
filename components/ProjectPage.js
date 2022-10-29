@@ -37,13 +37,13 @@ const ProjectPage = (props) => {
 
 
 
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 rounded mx-16`}>
-                <video ref={vidRef} autoPlay={true} controls = {true} className={`mx-auto w-full p-1 rounded-xl md:my-auto my-2 ${props.bkColor}`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 rounded mx-2 md:mx-16`}>
+                <video ref={vidRef} autoPlay={true} controls = {true} className={`mx-auto w-full p-1 rounded-xl lg:my-auto my-2 ${props.bkColor}`}>
                     <source src={props.src} type="video/mp4" />
                 </video>
 
 
-                <div className={`p-4 my-10 rounded-xl w-4/5 mx-auto ${props.bkColor}`}>
+                <div className={`p-4 my-10 rounded-xl md:w-4/5 mx-auto ${props.bkColor}`}>
                     <p className="text-2xl text-center"> Feature Overview </p>
                     <p className="text-sm text-gray-800 text-center mb-2"> Click on a feature to jump to that part of the video</p>
 

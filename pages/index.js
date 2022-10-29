@@ -44,7 +44,7 @@ const Home = () => {
                         projectLink="https://coloridentifier.web.app"
                         github = "https://github.com/tamandrew/color-identifier"
                         imgSrc="/color.png"
-                        bkColor="bg-gradient-to-r from-red-200 to-rose-100"
+                        bkColor="bg-gradient-to-r from-red-100 to-rose-100"
                     />
 
                     <SmallProjectBox
@@ -55,7 +55,7 @@ const Home = () => {
                         projectLink="https://triangulation-calculator.web.app/"
                         github = "https://github.com/tamandrew/triangulations-calculator"
                         imgSrc="/triangulations.png"
-                        bkColor="bg-gradient-to-r from-neutral-200 to-slate-100"
+                        bkColor="bg-gradient-to-r from-neutral-200 to-slate-200"
                     />
 
                 </div>

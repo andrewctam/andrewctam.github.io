@@ -17,7 +17,7 @@ const ProjectBox = (props) => {
                 </div>
 
                 <Link href={props.link}>
-                    <button className={"text-slate-700 mt-4 p-2 w-fit h-fit border border-black rounded bg-sky-50 hover:-translate-y-1 hover:scale-101 duration-100"}>Learn More →</button>
+                    <button className={"text-slate-700 bg-slate-200/50 mt-4 p-2 w-fit h-fit border border-black rounded bg-sky-5`0 hover:-translate-y-1 hover:scale-101 duration-100"}>Learn More →</button>
                 </Link>
 
             </div>
