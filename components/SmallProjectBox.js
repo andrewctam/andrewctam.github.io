@@ -15,7 +15,7 @@ const SmallProjectBox = (props) => {
                     </a>
 
                     <p className="text-lime-700 mb-6">{props.technologies}</p>
-                    <p>{props.description}</p>
+                    <p className = "mb-3">{props.description}</p>
                     <a className="text-sky-800 text-sm" href={props.github} target="_blank" rel="noreferrer">
                         GitHub Repository
                     </a>
