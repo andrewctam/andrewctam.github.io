@@ -16,7 +16,10 @@ const Home = () => {
                 </div>
                 
                 <div className="my-5 rounded-xl bg-white p-8 md:basis-3/4 flex flex-wrap align-center">
-                    Hi! My name is Andrew, and I am a student at Stony Brook University double majoring in Computer Science and Applied Math!
+                    <h1> {"Hi! I'm  Andrew Tam!"} </h1>
+                    <span>
+                        I am a student at Stony Brook University double majoring in Computer Science and Applied Math!
+                    </span>
                     <div className="w-full mt-5 rounded-xl flex flex-wrap items-center justify-center gap-4">
                         <ProfileLink
                             text="tamandrew"
@@ -67,7 +70,6 @@ const Home = () => {
             <h2 className="text-4xl mt-16 ml-4 md:ml-10 text-black font-semibold">
                 Experience
             </h2>
-            
 
             <div className="w-full my-4 grid grid-cols-1 gap-8">
                 <div className="bg-white border border-black/10 rounded-lg shadow-lg p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
@@ -76,11 +78,11 @@ const Home = () => {
             </div>
 
             <h2 className="text-4xl mt-16 ml-4 md:ml-10 text-black font-semibold">
-                Projects
+                Personal Projects
             </h2>
 
             <h3 className="text-lg mt-2 ml-4 md:ml-10 text-black">
-                These are some of the projects I have worked on to learn new technologies, to improve my skills, and for fun!
+                These are some of the projects I have worked on to learn new technologies, to improve my skills, and to have fun!
             </h3>
 
             <div className="w-full my-4 grid grid-cols-1 gap-8">
@@ -106,9 +108,9 @@ const Home = () => {
 
 
                 {!showMoreProjects ?
-                    <div className="text-black text-xs -mt-4 rounded-xl shadow-md bg-white p-2 w-fit mx-auto cursor-pointer" onClick={() => setShowMoreProjects(true)}>
+                    <button className="text-black text-xs -mt-4 rounded-xl shadow-md bg-white p-2 w-fit mx-auto" onClick={() => setShowMoreProjects(true)}>
                         More Projects
-                    </div>
+                    </button>
                     :
                     <div className = "grid grid-cols-1 md:grid-cols-2 gap-8">
                         <SmallProjectBox
@@ -128,10 +130,10 @@ const Home = () => {
                         />
 
                          <SmallProjectBox
-                            title="Image Color Identifier"
+                            title="Color Identifier"
                             description="A website that allows you to paste or upload an image, then select pixels to view their color codes using a responsive interface."
                             technologies="React, Tailwind CSS"
-                            projectLink="coloridentifier.web.app/"
+                            projectLink="https://coloridentifier.web.app/"
                             githubLink="https://github.com/tamandrew/color-identifier"
                         />
 
@@ -139,7 +141,7 @@ const Home = () => {
                             title="Schedule App"
                             description="Website that allows you to input a class schedule. Has daily/weekly schedule display that displays the current and next classes and can open zoom links if provided."
                             technologies="React"
-                            projectLink="tamandrew.github.io/schedule/"
+                            projectLink="https://tamandrew.github.io/schedule/"
                             githubLink="https://github.com/tamandrew/schedule"
                         />
 
@@ -147,7 +149,7 @@ const Home = () => {
                             title="Physics Lab"
                             description="A Unity game that allows players to build their own physics labs. The game runs using WebGL in the browser. You can also save your labs and share it with a link, and opening the link will reconstruct the saved lab."
                             technologies="Unity, C#"
-                            projectLink="tamandrew.github.io/PhysicsLab/app"
+                            projectLink="https://tamandrew.github.io/PhysicsLab/app"
                             githubLink="https://github.com/tamandrew/PhysicsLab"
                         />
                     </div>
@@ -156,17 +158,17 @@ const Home = () => {
 
 
             <h2 className="text-4xl mt-16 ml-4 md:ml-10 text-black font-semibold">
-                Significant School Projects
+                School Projects
             </h2>
 
             <h3 className="text-lg mt-2 ml-4 md:ml-10 text-black">
-                These are some significant homework assignments that I worked on at Stony Brook University. Due to Academic Honesty reasons, some projects do not have their code public. Please contact me if you are interested in seeing them and I may be provide it upon request.
+                These are some significant homework assignments that I worked on at Stony Brook University. Due to Academic Honesty reasons, some projects do not have their code public.
             </h3>
 
             <div className = "grid grid-cols-1 my-4 md:grid-cols-2 gap-8">
 
                 <SmallProjectBox
-                    title="CSE 320 HW5"
+                    title="Multithreaded Game Server"
                     description="CSE 320 HW5. A multithreaded game server that allows multiple players to play turn based games, with client connections handled through detatched threads for concurrency."
                     technologies="C (sockets, threads, mutexes)"
                 />
@@ -180,14 +182,14 @@ const Home = () => {
 
                 <SmallProjectBox
                     title="Point in Monotone Polygon"
-                    description="Extra credit project for CSE 355. A website that allows you to add points using your mouse to create a monotone polygon, then add a point and determine if the point is inside the polygon."
+                    description="CSE 355 extra credit project. A website that allows you to add points using your mouse to create a monotone polygon, then add a point and determine if the point is inside the polygon."
                     technologies="React, Tailwind CSS"
                     projectLink="https://point-in-monotone-polygon.web.app/"
                     githubLink="https://github.com/tamandrew/point-in-monotone-polygon"
                 />
                 <SmallProjectBox
                     title="Triangulation Calculator"
-                    description="Extra credit project for CSE 355. A website that allows you to add points using your mouse to create a polygon, then calculate the number of distinct triangulations using a dynamic programming algorithm."
+                    description="CSE 355 extra credit project. A website that allows you to add points using your mouse to create a polygon, then calculate the number of distinct triangulations using a dynamic programming algorithm."
                     technologies="React, Tailwind CSS"
                     projectLink="https://triangulation-calculator.web.app/"
                     githubLink="https://github.com/tamandrew/triangulations-calculator"

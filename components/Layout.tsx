@@ -7,12 +7,12 @@ const Layout = ({ children }) => {
                 <title>Andrew Tam</title>
             </Head>
 
-            <main className="sm:w-3/4 w-[95%] mx-auto">
+            <main className="w-[95%] sm:w-4/5 md:w-3/4 mx-auto">
                 {children}
             </main>
 
-            <div className = "w-full mt-24 bg-white text-black text-center py-2">
-                © 2023. All rights reserved.
+            <div className = "w-full mt-24 text-xs bg-white text-black text-center py-1">
+                © 2023 Andrew Tam. All rights reserved.
             </div>
         </>
     )
