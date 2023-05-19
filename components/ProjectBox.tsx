@@ -31,11 +31,11 @@ const ProjectBox = (props: ProjectBoxProps) => {
                         {props.description}
                     </p>
 
-                    <a target="_blank" href={props.projectLink} className={"text-slate-700 hover:bg-green-200 bg-green-200/50 mt-4 mr-2 p-1 w-fit h-fit border border-black/50 rounded text-xs"}>
+                    <a rel="noreferrer" target="_blank" href={props.projectLink} className={"text-slate-700 hover:bg-green-200 bg-green-200/50 mt-4 mr-2 p-1 w-fit h-fit border border-black/50 rounded text-xs"}>
                         Website
                     </a>
 
-                    <a target="_blank" href={props.githubLink} className={"text-slate-700 hover:bg-sky-200 bg-sky-200/50 mt-4 p-1 w-fit h-fit border border-black/50 rounded text-xs"}>
+                    <a rel="noreferrer" target="_blank" href={props.githubLink} className={"text-slate-700 hover:bg-sky-200 bg-sky-200/50 mt-4 p-1 w-fit h-fit border border-black/50 rounded text-xs"}>
                         GitHub Repo
                     </a>
                 </div>
