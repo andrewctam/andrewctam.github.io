@@ -138,6 +138,13 @@ export type GitHubPayload = {
 export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const GITHUB_API_KEY = process.env.GITHUB_API_KEY;
 
+    if (!GITHUB_API_KEY) return {
+        date: "",
+        sha: "",
+        additions: 0,
+        deletions: 0
+    };
+    
     const query = `
     query($repo: String!) {
         repository(owner: "tamandrew", name: $repo) {
@@ -161,7 +168,6 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const variables = {
         repo: repo
     }
-    
     const res = await fetch(`https://api.github.com/graphql`, {
         method: "POST",
         headers: {
@@ -172,8 +178,8 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     })
     .then(res => res.json());
 
+    console.log(res);
     const data = res.data.repository.object.history.edges[0].node;
-    console.log(data);
 
     return {
         date: new Date(data.committedDate).toLocaleString(),
