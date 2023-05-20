@@ -129,6 +129,13 @@ const Home = () => {
                             githubLink="https://github.com/tamandrew/CrowdPoll"
                         />
 
+                        <SmallProjectBox
+                            title="Personal Website"
+                            description="My personal website listing my projects and contact information. You are on it right now!"
+                            technologies="TypeScript, React, Next.js, Tailwind CSS"
+                            githubLink="https://github.com/tamandrew/tamandrew.github.io"
+                        />
+
                          <SmallProjectBox
                             title="Color Identifier"
                             description="A website that allows you to paste or upload an image, then select pixels to view their color codes using a responsive interface."

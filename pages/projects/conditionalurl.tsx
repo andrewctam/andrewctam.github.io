@@ -1,15 +1,16 @@
-import { GetServerSideProps } from "next";
-import ProjectPage, { DemoImage, fetchGitHubData } from "../../components/ProjectPage";
+import { GetStaticProps } from "next";
+import ProjectPage, { DemoImage, GitHubPayload, fetchGitHubData } from "../../components/ProjectPage";
 
-export type GitHubPayload = {
-    latestCommitSHA: string,   
-    additions: number,
-    deletions: number
+type PageProps = {
+    recentCommit: GitHubPayload
 }
 
-export const getServerSideProps: GetServerSideProps<GitHubPayload> = async () => {
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
     return {
-        props: fetchGitHubData("conditional-url")
+        props: {
+            recentCommit: await fetchGitHubData("conditional-url")
+        },
+        revalidate: 60
     };
 }
 
@@ -32,7 +33,7 @@ const images: DemoImage[] = [
     }
 ]
 
-const ConditionalURLPage = (props: GitHubPayload) => {
+const ConditionalURLPage = (props: PageProps) => {
     return (
         <ProjectPage
             title = "Conditional URL"
@@ -42,9 +43,7 @@ const ConditionalURLPage = (props: GitHubPayload) => {
             websiteLink="https://conditionalurl.web.app"
             images = {images}
             technologies="Azure Functions, MongoDB, Redis, TypeScript, TailwindCSS, Vue"
-            latestCommitSHA={props.latestCommitSHA}
-            commitAdditions={props.additions}
-            commitDeletions={props.deletions}
+            recentCommit={props.recentCommit}
         />
     )
 }

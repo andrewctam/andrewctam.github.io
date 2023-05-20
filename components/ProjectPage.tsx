@@ -6,7 +6,6 @@ export type DemoImage = {
     caption: string
 }
 
-
 type ProjectPageProps = {
     title: string,
     description: string,
@@ -15,10 +14,7 @@ type ProjectPageProps = {
     websiteLink: string,
     images: DemoImage[],
     technologies: string,
-    latestCommitSHA: string,
-    commitAdditions: number,
-    commitDeletions: number
-
+    recentCommit: GitHubPayload
 }
 
 const ProjectPage = (props: ProjectPageProps) => {
@@ -84,25 +80,25 @@ const ProjectPage = (props: ProjectPageProps) => {
             </div>
 
             <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
-                Latest Commit
+                {`Recent Commit on ${props.recentCommit.date}`}
             </h2>
         
             <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
                 {"Commit "}
-                <a href = {`${props.githubLink}/commit/${props.latestCommitSHA}`} 
+                <a href = {`${props.githubLink}/commit/${props.recentCommit.sha}`} 
                     target = "_blank" 
                     rel = "noreferrer"
                     className = "text-sky-600">
 
-                    {props.latestCommitSHA}
+                    {props.recentCommit.sha}
                 </a>
                 {" with "}
                 <span className = "text-green-600">
-                    {` ${props.commitAdditions} addition${props.commitAdditions === 1 ? "" : "s"}`}
+                    {` ${props.recentCommit.additions} addition${props.recentCommit.additions === 1 ? "" : "s"}`}
                 </span>
                 ,
                 <span className = "text-red-600">
-                    {` ${props.commitDeletions} deletion${props.commitDeletions === 1 ? "" : "s"}`}
+                    {` ${props.recentCommit.deletions} deletion${props.recentCommit.deletions === 1 ? "" : "s"}`}
                 </span>
             </div>
 
@@ -133,7 +129,8 @@ const ProjectPage = (props: ProjectPageProps) => {
 
 
 export type GitHubPayload = {
-    latestCommitSHA: string,   
+    date: string,
+    sha: string,   
     additions: number,
     deletions: number
 }
@@ -149,6 +146,7 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
                     history(first: 1) {
                         edges {
                             node {
+                                committedDate
                                 oid
                                 additions
                                 deletions
@@ -175,9 +173,11 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     .then(res => res.json());
 
     const data = res.data.repository.object.history.edges[0].node;
+    console.log(data);
 
     return {
-        latestCommitSHA: data.oid,
+        date: new Date(data.committedDate).toLocaleString(),
+        sha: data.oid,
         additions: data.additions,
         deletions: data.deletions
     }

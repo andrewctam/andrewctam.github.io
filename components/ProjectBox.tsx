@@ -47,8 +47,8 @@ const ProjectBox = (props: ProjectBoxProps) => {
                 </Link>
             </div>
 
-            <a rel="noreferrer" target="_blank" href={props.projectLink}>
-                <img src={props.imgSrc} alt={props.title} className="my-auto shadow-md rounded-xl" />
+            <a rel="noreferrer" target="_blank" href={props.projectLink} className="my-auto">
+                <img src={props.imgSrc} alt={props.title} className="shadow-md rounded-xl" />
             </a>
         </div>
     )

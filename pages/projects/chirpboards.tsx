@@ -1,10 +1,16 @@
-import { GetServerSideProps } from "next";
-import ProjectPage, { DemoImage, fetchGitHubData } from "../../components/ProjectPage";
-import { GitHubPayload } from "./conditionalurl";
+import { GetStaticProps } from "next";
+import ProjectPage, { DemoImage, GitHubPayload, fetchGitHubData } from "../../components/ProjectPage";
 
-export const getServerSideProps: GetServerSideProps<GitHubPayload> = async () => {
+type PageProps = {
+    recentCommit: GitHubPayload
+}
+
+export const getStaticProps: GetStaticProps<PageProps> = async () => {
     return {
-        props: fetchGitHubData("ChirpBoards")
+        props: {
+            recentCommit: await fetchGitHubData("ChirpBoards")
+        },
+        revalidate: 60
     };
 }
 
@@ -31,7 +37,7 @@ const images: DemoImage[] = [
 ]
 
 
-const ChirpBoardsPage = (props: GitHubPayload) => {
+const ChirpBoardsPage = (props: PageProps) => {
     return (
         <ProjectPage
             title = "Chirp Boards"
@@ -41,9 +47,7 @@ const ChirpBoardsPage = (props: GitHubPayload) => {
             websiteLink="https://chirpboards.web.app"
             images={images}
             technologies="GraphQL, Spring Boot, MySQL, Azure Blob Storage, TypeScript, TailwindCSS, React"
-            latestCommitSHA={props.latestCommitSHA}
-            commitAdditions={props.additions}
-            commitDeletions={props.deletions}
+            recentCommit={props.recentCommit}
         />
     )
 }
