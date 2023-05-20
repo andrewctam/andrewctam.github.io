@@ -10,6 +10,7 @@ export type DemoImage = {
 type ProjectPageProps = {
     title: string,
     description: string,
+    features: string[],
     githubLink: string,
     websiteLink: string,
     images: DemoImage[],
@@ -37,7 +38,20 @@ const ProjectPage = (props: ProjectPageProps) => {
             </h1>
         
             <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
-                {props.description}
+                
+                <div className = "mb-8">
+                    {props.description}
+                </div>
+
+                <ul>
+                    {props.features.map((feature, index) => {
+                        return (
+                            <li className = "list-disc ml-4" key = {`feature ${index}`}>
+                                {feature}
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
 
 
@@ -47,6 +61,26 @@ const ProjectPage = (props: ProjectPageProps) => {
         
             <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
                 {props.technologies}
+            </div>
+
+            <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
+                Links
+            </h2>
+
+            <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
+                
+                <div>
+                    {"GitHub Repo: "}
+                    <a href = {props.githubLink} target = "_blank" rel = "noreferrer" className = "text-sky-600">
+                        {props.githubLink} 
+                    </a>
+                </div>
+                <div>
+                    {"Website: "}
+                    <a href = {props.websiteLink} target = "_blank" rel = "noreferrer" className = "text-sky-600">
+                        {props.websiteLink} 
+                    </a>
+                </div>
             </div>
 
             <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
@@ -78,17 +112,17 @@ const ProjectPage = (props: ProjectPageProps) => {
                 </h1>
             : null}
 
-            {props.images.map((image) => {
+            {props.images.map((image, index) => {
                 return (
-                    <>
+                <div key={`image ${index}`}>
                     <img src = {image.src} 
                         className="w-full mx-auto rounded-lg shadow-md"
-                        alt={`${props.title} demo`}
+                        alt={image.caption}
                     />
                     <p className = "text-center mt-1 mb-16">
                         {image.caption}
                     </p>
-                </>
+                </div>
                 )
             })}
             
