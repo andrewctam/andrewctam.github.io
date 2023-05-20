@@ -90,7 +90,7 @@ const Home = () => {
                     title="Conditional URL"
                     description="Full stack serverless URL Shortener that redirects to different URLs based on 12 conditions, such as language, country, operating system, etc. Provides the owner with aggregate visitor data and redirect trends."
                     technologies="Azure Functions, MongoDB, Redis, TypeScript, TailwindCSS, Vue"
-                    link="./CrowdPoll"
+                    link="./projects/conditionalurl"
                     projectLink="https://conditionalurl.web.app"
                     githubLink="https://github.com/tamandrew/conditional-url"
                     imgSrc="/conditionalurl.png"
@@ -100,7 +100,7 @@ const Home = () => {
                     title="Chirp Boards"
                     description="Full stack Social media website combining Twitter and Reddit, where users can create posts with up to 500 characters and an optional image, with commenting, up and down voting, and post forwarding."
                     technologies="GraphQL, Spring Boot, MySQL, Azure Blob Storage, TypeScript, TailwindCSS, React"
-                    link="./MatrixGenerator"
+                    link="./projects/chirpboards"
                     projectLink="https://chirpboards.web.app"
                     githubLink="https://github.com/tamandrew/ChirpBoards"
                     imgSrc="/chirpboards.png"
@@ -108,7 +108,7 @@ const Home = () => {
 
 
                 {!showMoreProjects ?
-                    <button className="text-black text-xs -mt-4 rounded-xl shadow-md bg-white p-2 w-fit mx-auto" onClick={() => setShowMoreProjects(true)}>
+                    <button className="text-black text-xs -mt-4 rounded-lg shadow-md bg-white p-2 w-fit mx-auto" onClick={() => setShowMoreProjects(true)}>
                         More Projects
                     </button>
                     :
