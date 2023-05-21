@@ -13,7 +13,7 @@ type ProjectBoxProps = {
 
 const ProjectBox = (props: ProjectBoxProps) => {
     return (
-        <div className="bg-white border border-black/10 rounded-lg shadow-lg p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+        <div className="bg-gray-100 border border-black/10 rounded-lg shadow-lg p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
 
             <div>
                 <div>

@@ -10,7 +10,7 @@ type SmallProjectBoxProps = {
 
 const SmallProjectBox = (props: SmallProjectBoxProps) => {
     return (
-        <div className="bg-white border border-black/10 rounded-lg shadow-lg p-4 md:p-10 w-full">
+        <div className="bg-gray-100 border border-black/10 rounded-lg shadow-lg p-4 md:p-10 w-full">
             <a rel="noreferrer" target="_blank" href={props.projectLink}>
                 <h2 className="text-3xl text-black">
                     {props.title}

@@ -1,5 +1,6 @@
-import Layout from "./Layout"
+
 import { useRouter } from "next/router"
+import Block from "./Block"
 
 export type DemoImage = {
     src: string,
@@ -7,9 +8,9 @@ export type DemoImage = {
 }
 
 type ProjectPageProps = {
+    children: React.ReactNode,
     title: string,
     description: string,
-    features: string[],
     githubLink: string,
     websiteLink: string,
     images: DemoImage[],
@@ -17,54 +18,31 @@ type ProjectPageProps = {
     recentCommit: GitHubPayload
 }
 
-const ProjectPage = (props: ProjectPageProps) => {
 
+const ProjectPage = (props: ProjectPageProps) => {
     const router = useRouter();
 
     return (
-        <Layout>
+        <>
             <button 
                 onClick={() => router.back()}
                 className="fixed top-4 left-4 px-4 py-1 bg-white hover:bg-gray-100 rounded border border-black/10 shadow-md">
                 Back
             </button>
-
-            <h1 className = "text-3xl font-semibold mt-14 mb-2 ml-4 md:ml-10">
-                {props.title}
-            </h1>
         
-            <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
-                
+            <Block heading={props.title} >
                 <div className = "mb-8">
                     {props.description}
                 </div>
 
-                <ul>
-                    {props.features.map((feature, index) => {
-                        return (
-                            <li className = "list-disc ml-4" key = {`feature ${index}`}>
-                                {feature}
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+                {props.children}
+            </Block>
 
-
-            <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
-                Technologies
-            </h2>
-        
-            <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
+            <Block heading="Technologies" >
                 {props.technologies}
-            </div>
+            </Block>
 
-            <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
-                Links
-            </h2>
-
-            <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
-                
+            <Block heading="Links">
                 <div>
                     {"GitHub Repo: "}
                     <a href = {props.githubLink} target = "_blank" rel = "noreferrer" className = "text-sky-600">
@@ -77,13 +55,10 @@ const ProjectPage = (props: ProjectPageProps) => {
                         {props.websiteLink} 
                     </a>
                 </div>
-            </div>
+            </Block>
 
-            <h2 className = "text-3xl font-semibold mt-8 mb-2 ml-4 md:ml-10">
-                {`Recent Commit on ${props.recentCommit.date}`}
-            </h2>
         
-            <div className = "bg-white shadow-md rounded p-4 md:px-10 md:py-4">
+            <Block heading={`Recent Commit on ${props.recentCommit.date}`}>
                 {"Commit "}
                 <a href = {`${props.githubLink}/commit/${props.recentCommit.sha}`} 
                     target = "_blank" 
@@ -100,29 +75,27 @@ const ProjectPage = (props: ProjectPageProps) => {
                 <span className = "text-red-600">
                     {` ${props.recentCommit.deletions} deletion${props.recentCommit.deletions === 1 ? "" : "s"}`}
                 </span>
-            </div>
+            </Block>
 
             {props.images.length > 0 ?
-                <h1 className = "text-3xl font-semibold mt-14 mb-2 ml-4 md:ml-10">
-                    Images
-                </h1>
+                <Block heading="Images" opacity="0.2">
+                    {props.images.map((image, index) => {
+                        return (
+                            <div key={`image ${index}`} className = "my-8">
+                                <img src = {image.src} 
+                                    className="w-full mx-auto rounded-lg shadow-md"
+                                    alt={image.caption}
+                                />
+                                <p className = "text-center mt-1">
+                                    {image.caption}
+                                </p>
+                            </div>
+                        )
+                    })}
+                </Block>
             : null}
-
-            {props.images.map((image, index) => {
-                return (
-                <div key={`image ${index}`}>
-                    <img src = {image.src} 
-                        className="w-full mx-auto rounded-lg shadow-md"
-                        alt={image.caption}
-                    />
-                    <p className = "text-center mt-1 mb-16">
-                        {image.caption}
-                    </p>
-                </div>
-                )
-            })}
             
-        </Layout>
+        </>
     )
     
 }
@@ -138,13 +111,16 @@ export type GitHubPayload = {
 export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const GITHUB_API_KEY = process.env.GITHUB_API_KEY;
 
-    if (!GITHUB_API_KEY) return {
-        date: "",
-        sha: "",
-        additions: 0,
-        deletions: 0
-    };
-    
+    if (!GITHUB_API_KEY) {
+        return {
+            date: "",
+            sha: "",
+            additions: 0,
+            deletions: 0
+        };
+    }
+
+    //fetch the most recent commit on the main branch
     const query = `
     query($repo: String!) {
         repository(owner: "tamandrew", name: $repo) {
@@ -168,6 +144,7 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const variables = {
         repo: repo
     }
+
     const res = await fetch(`https://api.github.com/graphql`, {
         method: "POST",
         headers: {
@@ -178,11 +155,10 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     })
     .then(res => res.json());
 
-    console.log(res);
     const data = res.data.repository.object.history.edges[0].node;
 
     return {
-        date: new Date(data.committedDate).toLocaleString(),
+        date: new Date(data.committedDate).toDateString(),
         sha: data.oid,
         additions: data.additions,
         deletions: data.deletions

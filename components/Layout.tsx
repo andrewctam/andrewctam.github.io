@@ -10,7 +10,7 @@ const Layout = (props: LayoutProps) => {
                 <title>Andrew Tam</title>
             </Head>
 
-            <main className="w-[95%] sm:w-4/5 md:w-3/4 mx-auto min-h-screen">
+            <main className="w-[95%] md:w-3/4 mx-auto min-h-screen">
                 {props.children}
             </main>
 
