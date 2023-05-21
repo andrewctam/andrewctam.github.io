@@ -30,7 +30,7 @@ const ProjectPage = (props: ProjectPageProps) => {
                 Back
             </button>
         
-            <Block heading={props.title} >
+            <Block heading={props.title} padding={true}>
                 <div className = "mb-8">
                     {props.description}
                 </div>
@@ -38,11 +38,11 @@ const ProjectPage = (props: ProjectPageProps) => {
                 {props.children}
             </Block>
 
-            <Block heading="Technologies" >
+            <Block heading="Technologies" padding={true}>
                 {props.technologies}
             </Block>
 
-            <Block heading="Links">
+            <Block heading="Links" padding={true}>
                 <div>
                     {"GitHub Repo: "}
                     <a href = {props.githubLink} target = "_blank" rel = "noreferrer" className = "text-sky-600">
@@ -58,7 +58,7 @@ const ProjectPage = (props: ProjectPageProps) => {
             </Block>
 
         
-            <Block heading={`Recent Commit on ${props.recentCommit.date}`}>
+            <Block heading={`Recent Commit on ${props.recentCommit.date}`} padding={true}>
                 {"Commit "}
                 <a href = {`${props.githubLink}/commit/${props.recentCommit.sha}`} 
                     target = "_blank" 
@@ -78,7 +78,7 @@ const ProjectPage = (props: ProjectPageProps) => {
             </Block>
 
             {props.images.length > 0 ?
-                <Block heading="Images" opacity="0.2">
+                <Block heading="Images" opacity="0" padding={false}>
                     {props.images.map((image, index) => {
                         return (
                             <div key={`image ${index}`} className = "my-8">

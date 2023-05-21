@@ -3,6 +3,7 @@ type BlockProps = {
     heading: string
     caption?: string,
     opacity?: string
+    padding?: boolean
 }
 const Block = (props: BlockProps) => {
     return (
@@ -18,8 +19,10 @@ const Block = (props: BlockProps) => {
             : null}
 
             <div 
-                className = "shadow-md mt-4 rounded px-4 py-2 md:px-10 md:py-5"
-                style = {{backgroundColor: `rgba(255, 255, 255, ${props.opacity ?? "1"})`}}
+                className = {`mt-4 rounded ${props.padding ? "px-4 py-2 md:px-10 md:py-5" : ""} ${props.opacity !== "0" ? "shadow-md" : ""}`}
+                style = {{
+                    backgroundColor: `rgba(255, 255, 255, ${props.opacity ?? "1"})`,
+                }}
             >
                 {props.children}
             </div>

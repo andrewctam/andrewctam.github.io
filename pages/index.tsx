@@ -70,7 +70,7 @@ const Home = () => {
         </div>
 
 
-        <Block heading="Experience" opacity="0.2">
+        <Block heading="Experience" opacity="0" padding={false}>
             <div className="w-full my-4 grid grid-cols-1 gap-8">
                 <ExperienceBox
                     role="Software Engineer Intern"
@@ -89,7 +89,8 @@ const Home = () => {
         <Block 
             heading="Projects"
             caption="These are some of the projects I have worked on to learn new technologies, to improve my skills, and to have fun!"
-            opacity="0.2"
+            opacity="0"
+            padding={false}
         >
             <div className="w-full my-4 grid grid-cols-1 gap-8">
                 <ProjectBox
@@ -174,7 +175,8 @@ const Home = () => {
         <Block
             heading="School Projects"
             caption="These are some significant homework assignments that I worked on at Stony Brook University. Due to Academic Honesty reasons, some projects do not have their code public."
-            opacity="0.2"
+            opacity="0"
+            padding={false}
         >   
             <div className = "grid grid-cols-1 my-4 md:grid-cols-2 gap-8">
                 <SmallProjectBox
