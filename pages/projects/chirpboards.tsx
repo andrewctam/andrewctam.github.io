@@ -35,7 +35,7 @@ const ChirpBoardsPage = (props: PageProps) => {
             websiteLink="https://chirpboards.web.app"
             images={images}
             technologies="GraphQL, Spring Boot, MySQL, Azure Blob Storage, TypeScript, TailwindCSS, React"
-            recentCommit={props.recentCommit}
+            repoInfo={props.recentCommit}
         >
             <ul className="list-disc ml-4">
                 <li>Users create an account with a unique username and log in to interact with other users.</li>

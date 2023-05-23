@@ -6,7 +6,7 @@ type ProjectBoxProps = {
     description: string,
     projectLink: string,
     githubLink: string,
-    link: string,
+    learnMoreLink: string,
     imgSrc: string,
 
 }
@@ -40,7 +40,7 @@ const ProjectBox = (props: ProjectBoxProps) => {
                     </a>
                 </div>
 
-                <Link href={props.link} >
+                <Link href={props.learnMoreLink} >
                     <button className="text-slate-700 hover:bg-slate-200 bg-slate-200/50 shadow-md mt-16 p-2 w-fit h-fit border border-black/50 rounded">
                         Learn More
                     </button>

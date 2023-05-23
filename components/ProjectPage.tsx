@@ -15,7 +15,7 @@ type ProjectPageProps = {
     websiteLink: string,
     images: DemoImage[],
     technologies: string,
-    recentCommit: GitHubPayload
+    repoInfo: GitHubPayload
 }
 
 
@@ -38,9 +38,38 @@ const ProjectPage = (props: ProjectPageProps) => {
                 {props.children}
             </Block>
 
-            <Block heading="Technologies" padding={true}>
-                {props.technologies}
+
+            <Block heading={`Project Information`} padding={true}>
+                <div>
+                    {`Created on ${props.repoInfo.createDate}`}
+                </div>
+                <div>
+                    {`Technologies: ${props.technologies}`}
+                </div>
+                <div>
+                    {`Total Commits: ${props.repoInfo.totalCommits}`}
+                </div>
+                <div>
+                    {"Recent Commit "}
+                    <a href = {`${props.githubLink}/commit/${props.repoInfo.recentCommitSHA}`} 
+                        target = "_blank" 
+                        rel = "noreferrer"
+                        className = "text-sky-600">
+
+                        {props.repoInfo.recentCommitSHA}
+                    </a>
+                    {` on ${props.repoInfo.recentCommitDate} with `}
+                    <span className = "text-green-600">
+                        {` ${props.repoInfo.recentAdditions} addition${props.repoInfo.recentAdditions === 1 ? "" : "s"}`}
+                    </span>
+                    ,
+                    <span className = "text-red-600">
+                        {` ${props.repoInfo.recentDeletions} deletion${props.repoInfo.recentDeletions === 1 ? "" : "s"}`}
+                    </span>
+                </div>
             </Block>
+
+            
 
             <Block heading="Links" padding={true}>
                 <div>
@@ -57,25 +86,6 @@ const ProjectPage = (props: ProjectPageProps) => {
                 </div>
             </Block>
 
-        
-            <Block heading={`Recent Commit on ${props.recentCommit.date}`} padding={true}>
-                {"Commit "}
-                <a href = {`${props.githubLink}/commit/${props.recentCommit.sha}`} 
-                    target = "_blank" 
-                    rel = "noreferrer"
-                    className = "text-sky-600">
-
-                    {props.recentCommit.sha}
-                </a>
-                {" with "}
-                <span className = "text-green-600">
-                    {` ${props.recentCommit.additions} addition${props.recentCommit.additions === 1 ? "" : "s"}`}
-                </span>
-                ,
-                <span className = "text-red-600">
-                    {` ${props.recentCommit.deletions} deletion${props.recentCommit.deletions === 1 ? "" : "s"}`}
-                </span>
-            </Block>
 
             {props.images.length > 0 ?
                 <Block heading="Images" opacity="0" padding={false}>
@@ -102,10 +112,12 @@ const ProjectPage = (props: ProjectPageProps) => {
 
 
 export type GitHubPayload = {
-    date: string,
-    sha: string,   
-    additions: number,
-    deletions: number
+    createDate: string,
+    totalCommits: number,
+    recentCommitDate: string,
+    recentCommitSHA: string,   
+    recentAdditions: number,
+    recentDeletions: number
 }
 
 export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
@@ -113,10 +125,12 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
 
     if (!GITHUB_API_KEY) {
         return {
-            date: "",
-            sha: "",
-            additions: 0,
-            deletions: 0
+            createDate: "",
+            totalCommits: 0,
+            recentCommitDate: "",
+            recentCommitSHA: "",
+            recentAdditions: 0,
+            recentDeletions: 0
         };
     }
 
@@ -124,9 +138,11 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const query = `
     query($repo: String!) {
         repository(owner: "tamandrew", name: $repo) {
+            createdAt
             object(expression: "main") {
                 ... on Commit {
                     history(first: 1) {
+                        totalCount
                         edges {
                             node {
                                 committedDate
@@ -158,10 +174,12 @@ export const fetchGitHubData = async (repo: string): Promise<GitHubPayload> => {
     const data = res.data.repository.object.history.edges[0].node;
 
     return {
-        date: new Date(data.committedDate).toDateString(),
-        sha: data.oid,
-        additions: data.additions,
-        deletions: data.deletions
+        createDate: new Date(res.data.repository.createdAt).toLocaleDateString(),
+        totalCommits: res.data.repository.object.history.totalCount,
+        recentCommitDate: new Date(data.committedDate).toLocaleDateString(),
+        recentCommitSHA: data.oid,
+        recentAdditions: data.additions,
+        recentDeletions: data.deletions
     }
 }
 

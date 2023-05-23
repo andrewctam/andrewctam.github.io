@@ -35,7 +35,7 @@ const ConditionalURLPage = (props: PageProps) => {
             websiteLink="https://conditionalurl.web.app"
             images = {images}
             technologies="Azure Functions, MongoDB, Redis, TypeScript, TailwindCSS, Vue"
-            recentCommit={props.recentCommit}
+            repoInfo={props.recentCommit}
         >
             <ul className="list-disc ml-4">
                 <li>Conditional URLs can be redirect a shortened URL other URLs based on conditions</li>

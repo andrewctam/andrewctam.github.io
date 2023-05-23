@@ -23,7 +23,7 @@ const Home = () => {
             <div className="md:basis-3/4 flex flex-wrap align-center">
                 <div className = "my-5 rounded-xl bg-white shadow-md p-8">
                     <h1 className = "text-2xl mb-4">
-                        Hi! I'm Andrew Tam!
+                        Welcome! My name is Andrew Tam!
                     </h1>
                     <span className = "">
                         I am a student at Stony Brook University double majoring in Computer Science and Applied Math. I am currently a Software Engineer Intern at Walmart Global Tech working on front end development. I am primarily interested in web development, and you can see some samples of my experience and personal projects that I have worked on this webpage!
@@ -101,7 +101,7 @@ const Home = () => {
                     title="Conditional URL"
                     description="Full stack serverless URL Shortener that redirects to different URLs based on 12 conditions, such as language, country, operating system, etc. Provides the owner with aggregate visitor data and redirect trends."
                     technologies="Azure Functions, MongoDB, Redis, TypeScript, TailwindCSS, Vue"
-                    link="./projects/conditionalurl"
+                    learnMoreLink="./projects/conditionalurl"
                     projectLink="https://conditionalurl.web.app"
                     githubLink="https://github.com/tamandrew/conditional-url"
                     imgSrc="/conditionalurl-analytics.png"
@@ -111,7 +111,7 @@ const Home = () => {
                     title="Chirp Boards"
                     description="Full stack social media website combining Twitter and Reddit, where users can create posts with up to 500 characters and an optional image, with commenting, up and down voting, and post forwarding."
                     technologies="GraphQL, Spring Boot, MySQL, Azure Blob Storage, TypeScript, TailwindCSS, React"
-                    link="./projects/chirpboards"
+                    learnMoreLink="./projects/chirpboards"
                     projectLink="https://chirpboards.web.app"
                     githubLink="https://github.com/tamandrew/ChirpBoards"
                     imgSrc="/chirpboards-home.png"
