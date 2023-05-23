@@ -22,13 +22,11 @@ const ExperienceBox = (props: ExperienceBoxProps) => {
                         {`${props.startDate} - ${props.endDate}`}
                     </p>
 
-                    <img src={props.logoSrc} alt={`${props.company} logo`} className="mt-8 w-1/4" />
-
+                    <img src={props.logoSrc} alt={`${props.company} logo`} className="mt-8 w-1/6 rounded-lg shadow-md" />
                     <h2 className="text-lg text-black">
                         {props.company}
                     </h2>
                 </div>
-
             </div>
 
             <div>

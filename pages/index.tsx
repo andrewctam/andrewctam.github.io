@@ -12,23 +12,28 @@ const Home = () => {
     const [showMoreProjects, setShowMoreProjects] = useState(false);
 
     return (<>
-        <div className="md:flex md:gap-8 mt-16">
-            <div className="my-5 md:basis-1/4 max-w-[50vw] mx-auto">
+        <div className="md:flex md:gap-8 my-16">
+
+            <div className="my-5 md:basis-1/4 mx-auto">
                 <img src = "./pfp.jpg" 
                     alt="Photo of me" 
-                    className = "my-2 rounded-full border border-black/50 shadow-md"/>
+                    className = "my-2 rounded-full border border-black/50 shadow-md w-[200px] h-[200px] object-cover mx-auto"/>
             </div>
             
-            <div className="my-5 rounded-xl bg-white p-8 md:basis-3/4 flex flex-wrap align-center">
-                <h1> {"Hi! I'm Andrew Tam!"} </h1>
-                <span>
-                    I am a student at Stony Brook University double majoring in Computer Science and Applied Math!
-                </span>
+            <div className="md:basis-3/4 flex flex-wrap align-center">
+                <div className = "my-5 rounded-xl bg-white shadow-md p-8">
+                    <h1 className = "text-2xl mb-4">
+                        Hi! I'm Andrew Tam!
+                    </h1>
+                    <span className = "">
+                        I am a student at Stony Brook University double majoring in Computer Science and Applied Math. I am currently a Software Engineer Intern at Walmart Global Tech working on front end development. I am primarily interested in web development, and you can see some samples of my experience and personal projects that I have worked on this webpage!
+                    </span>
+                </div>
+                
                 <div className="w-full mt-5 rounded-xl flex flex-wrap items-center justify-center gap-4">
                     <ProfileLink
-                        text="tamandrew"
+                        text="GitHub"
                         link="https://github.com/tamandrew"
-                        openInNewTab={true}
                         svg={
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -39,8 +44,7 @@ const Home = () => {
 
                     <ProfileLink
                         link="https://www.linkedin.com/in/andrewctam/"
-                        text="andrewctam"
-                        openInNewTab={true}
+                        text="LinkedIn"
                         svg={
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -105,7 +109,7 @@ const Home = () => {
 
                 <ProjectBox
                     title="Chirp Boards"
-                    description="Full stack Social media website combining Twitter and Reddit, where users can create posts with up to 500 characters and an optional image, with commenting, up and down voting, and post forwarding."
+                    description="Full stack social media website combining Twitter and Reddit, where users can create posts with up to 500 characters and an optional image, with commenting, up and down voting, and post forwarding."
                     technologies="GraphQL, Spring Boot, MySQL, Azure Blob Storage, TypeScript, TailwindCSS, React"
                     link="./projects/chirpboards"
                     projectLink="https://chirpboards.web.app"

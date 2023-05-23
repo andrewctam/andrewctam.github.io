@@ -8,12 +8,12 @@ type BlockProps = {
 const Block = (props: BlockProps) => {
     return (
         <>
-            <h1 className = "text-3xl font-semibold mt-12 ml-4 md:ml-10">
+            <h1 className = "text-3xl font-semibold mt-12 ml-4 md:ml-10 text-gray-200">
                 {props.heading}
             </h1>
 
             {props.caption ? 
-                <h2 className="text-lg ml-4 md:ml-10 text-black">
+                <h2 className="text-lg ml-4 md:ml-10 text-gray-200">
                 {props.caption}
                 </h2>
             : null}
